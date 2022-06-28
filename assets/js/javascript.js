@@ -6,14 +6,32 @@
 //use local storage to save the win/loss counters
 //add timer
 var guessWord = ["e","x","q","u","i","s","i","t","e"];
+var button = document.querySelector("button");
+var loss = document.getElementById("loss");
+var wins = document.getElementById("wins");
+var pWin = 0;
+var pLoss = 0;
 
-function timerCount() {
-    var pTime = 20;
-    setInterval(function(){
+
+button.addEventListener("click", function() {
+    //timer function
+    var pTime = 5;
+    var interval = setInterval(function(){
         pTime--
         if(pTime>=0){
             id = document.getElementById("count");
             id.innerHTML = pTime;
         }
+        if (pTime <= 0) {
+        pLoss++
+        loss.innerHTML = pLoss;
+        clearInterval(interval);
+    } else {
+        pWin++
+        wins.innerHTML = pWin;
+        clearInterval(interval);
+    }
     },1000);
-}
+
+    
+},1000); 
