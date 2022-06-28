@@ -5,23 +5,15 @@
 //add reset button to clear all counters (win, loss) to zero
 //use local storage to save the win/loss counters
 //add timer
-var startButtom = document.getElementById("#gameStart");
-var tallyContainer = document.querySelector("#tally");
-var gameContainer = document.querySelector("#game");
 var guessWord = ["e","x","q","u","i","s","i","t","e"];
-// var winCount = localStorage.getItem()
-// var lossCount = localStorage.getItem()
 
-function load() {
-    tallyContainer.addEventListener("click",startButton);
-    //timer
-        var time = 10;
-        var timeLeft = setInterval(function(){
-            if (time <=0) {
-                clearInterval(timeLeft);
-            }
-            time -=1;
-        } ,1000);
-        console.log(time);
-    }
-
+function timerCount() {
+    var pTime = 20;
+    setInterval(function(){
+        pTime--
+        if(pTime>=0){
+            id = document.getElementById("count");
+            id.innerHTML = pTime;
+        }
+    },1000);
+}
